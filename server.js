@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 
@@ -17,6 +18,6 @@ app.get('/api/whoami', function(req, res) {
 	res.send(output);
 });
 
-app.listen(process.env.PORT || 3000, process.env.IP, function() {
-	console.log('Server started!');
-})
+app.listen(PORT, process.env.IP, function(){
+    console.log('Server started on port', PORT);
+});
